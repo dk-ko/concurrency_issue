@@ -13,7 +13,8 @@ public class StockService {
         this.stockRepository = stockRepository;
     }
 
-//    @Transactional
+    // @Transactional
+    // synchronized 각 프로세스 안에서만 보장이 된다.
     public synchronized void decrease(Long id, Long quantity) {
         final Stock stock = stockRepository.findById(id).orElseThrow();
 
